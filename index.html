@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DIFF – Drone Intelligence for Future Forestry</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --dark-green: #082820;
+      --classic-green: #4C6444;
+      --khaki: #CABA9C;
+      --raw-umber: #8A6240;
+      --cafe: #4D2D18;
+      --white: #ffffff;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+      color:var(--dark-green);
+      background-color:var(--khaki);
+      line-height:1.6;
+    }
+
+    h1,h2,h3{
+      font-family:"Poppins","Inter",system-ui,sans-serif;
+      color:var(--dark-green);
+    }
+
+    p{
+      font-size:0.97rem;
+      text-align:justify;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .page-wrapper{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 1.5rem;
+      width:100%;
+    }
+
+    /* HEADER */
+    header{
+      background-color:var(--dark-green);
+      color:var(--white);
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0.8rem 0;
+      gap:1.5rem;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0.9rem;
+    }
+
+    .brand img{
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      object-fit:cover;
+      background-color:var(--classic-green);
+    }
+
+    .brand-title{
+      font-weight:600;
+      font-size:1.05rem;
+      letter-spacing:0.03em;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:1rem;
+      font-size:0.9rem;
+    }
+
+    nav a{
+      color:var(--white);
+      text-decoration:none;
+      opacity:0.9;
+    }
+    nav a:hover{
+      opacity:1;
+      text-decoration:underline;
+    }
+
+    .btn-primary{
+      padding:0.55rem 1.1rem;
+      border-radius:999px;
+      border:none;
+      background-color:var(--classic-green);
+      color:var(--white);
+      font-weight:500;
+      font-size:0.9rem;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-block;
+    }
+    .btn-primary:hover{ background-color:var(--raw-umber); }
+
+    .btn-outline{
+      padding:0.55rem 1.1rem;
+      border-radius:999px;
+      border:1px solid var(--classic-green);
+      background-color:var(--white);
+      color:var(--classic-green);
+      font-weight:500;
+      font-size:0.9rem;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-block;
+    }
+    .btn-outline:hover{
+      border-color:var(--raw-umber);
+      color:var(--raw-umber);
+    }
+
+    /* HERO */
+    .hero{
+      padding:2.4rem 0 2.8rem 0;
+    }
+
+    .hero-panel{
+      background-color:#f5ecdd;
+      border-radius:26px;
+      padding:2.4rem 2.6rem;
+      box-shadow:0 20px 60px rgba(0,0,0,0.18);
+      display:flex;
+      flex-wrap:wrap;
+      gap:2.4rem;
+      align-items:center;
+    }
+
+    .hero-left{
+      flex:1 1 260px;
+      min-width:0;
+    }
+
+    .hero-title{
+      font-size:clamp(1.9rem,3vw,2.7rem);
+      margin-bottom:0.7rem;
+    }
+
+    .hero-subtitle{
+      font-size:0.98rem;
+      margin-bottom:1rem;
+    }
+
+    .hero-list{
+      margin-bottom:1.3rem;
+      padding-left:1.1rem;
+      font-size:0.95rem;
+    }
+    .hero-list li{ margin-bottom:0.28rem; }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.75rem;
+    }
+
+    .hero-right{
+      flex:1 1 260px;
+      min-width:0;
+    }
+
+    .hero-card{
+      background-color:var(--white);
+      border-radius:18px;
+      padding:1rem 1.2rem 1.15rem 1.2rem;
+      box-shadow:0 16px 40px rgba(0,0,0,0.20);
+      max-width:480px;
+      margin:0 auto;
+    }
+
+    .hero-tag{
+      font-size:0.78rem;
+      font-weight:500;
+      color:var(--classic-green);
+      margin-bottom:0.4rem;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+    }
+
+    .hero-image-wrap{
+      border-radius:12px;
+      overflow:hidden;
+      background:linear-gradient(135deg,#d5c5ab,#f5ecdd);
+      border:1px solid rgba(0,0,0,0.1);
+      min-height:210px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero-image-wrap img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+
+    .hero-card-text{
+      margin-top:0.55rem;
+      font-size:0.86rem;
+      text-align:justify;
+      color:#494438;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:2.6rem 0 2.8rem 0;
+    }
+
+    .section-light{
+      background-color:#e4d7c1;
+    }
+
+    .section-heading{
+      font-size:1.55rem;
+      margin-bottom:0.45rem;
+    }
+
+    .section-sub{
+      font-size:0.9rem;
+      opacity:0.9;
+      margin-bottom:0.9rem;
+    }
+
+    /* ABOUT – info blocks */
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:1.3rem;
+      margin-top:1.4rem;
+    }
+
+    .info-card{
+      background-color:var(--white);
+      border-radius:18px;
+      padding:1.2rem 1.3rem 1.1rem 1.3rem;
+      box-shadow:0 10px 26px rgba(0,0,0,0.16);
+    }
+
+    .info-chip{
+      display:inline-block;
+      font-size:0.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      font-weight:600;
+      padding:0.16rem 0.46rem;
+      border-radius:999px;
+      background-color:#f5ecdd;
+      color:var(--cafe);
+      margin-bottom:0.4rem;
+    }
+
+    .info-header{
+      display:flex;
+      align-items:center;
+      gap:0.55rem;
+      margin-bottom:0.3rem;
+    }
+
+    .info-icon{
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.8rem;
+      font-weight:600;
+      color:var(--white);
+      background:linear-gradient(135deg,var(--classic-green),var(--dark-green));
+      flex-shrink:0;
+    }
+    .info-icon--amber{
+      background:linear-gradient(135deg,#c28a4a,#8a5a26);
+    }
+    .info-icon--scope{
+      background:linear-gradient(135deg,#6b4b2a,#4D2D18);
+    }
+
+    .info-card h3{
+      font-size:1rem;
+    }
+
+    .info-card p,
+    .info-card ul{
+      font-size:0.9rem;
+    }
+
+    .info-card ul{
+      margin-left:1rem;
+      margin-top:0.3rem;
+    }
+    .info-card li{ margin-bottom:0.26rem; }
+
+    /* FEATURE ROWS (drone / app) */
+    .feature-row{
+      display:flex;
+      flex-direction:column;
+      gap:1.8rem;
+      align-items:stretch;
+    }
+
+    .feature-text{
+      flex:1;
+    }
+
+    .feature-title-row{
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      margin-bottom:0.5rem;
+    }
+
+    .feature-icon{
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,0.7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.9rem;
+      background-color:var(--classic-green);
+      color:var(--white);
+      flex-shrink:0;
+    }
+
+    .feature-text h3{
+      font-size:1.25rem;
+    }
+
+    .feature-text ul{
+      margin-top:0.6rem;
+      margin-left:1.1rem;
+      font-size:0.93rem;
+    }
+    .feature-text li{ margin-bottom:0.3rem; }
+
+    .feature-media{
+      flex:1;
+    }
+
+    .card-simple{
+      background-color:var(--white);
+      border-radius:14px;
+      padding:1.1rem 1.25rem;
+      box-shadow:0 10px 26px rgba(0,0,0,0.16);
+    }
+
+    /* subtle box + line for explanation */
+    .feature-box{
+      background-color:rgba(255,255,255,0.04);
+      border-radius:16px;
+      border:1px solid rgba(8,40,32,0.15);
+      padding:0.95rem 1.1rem 1.05rem;
+      position:relative;
+      max-width:720px;
+    }
+    .feature-box::before{
+      content:"";
+      position:absolute;
+      left:1rem;
+      right:1rem;
+      top:0;
+      border-top:2px solid rgba(76,100,68,0.4);
+      border-radius:999px;
+    }
+    .feature-box p{
+      margin-top:0.45rem;
+      margin-bottom:0.5rem;
+    }
+    .feature-box ul{
+      margin-top:0.3rem;
+    }
+
+    /* CONTACT */
+    .contact-card{
+      background-color:var(--white);
+      border-radius:18px;
+      padding:1.3rem 1.5rem;
+      box-shadow:0 10px 26px rgba(0,0,0,0.14);
+      margin-top:1.1rem;
+    }
+
+    .form-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+      margin-bottom:0.9rem;
+    }
+
+    .form-field{
+      flex:1 1 220px;
+    }
+
+    label{
+      font-size:0.9rem;
+    }
+
+    input,textarea{
+      width:100%;
+      margin-top:0.25rem;
+      padding:0.45rem 0.55rem;
+      border-radius:6px;
+      border:1px solid #c9b393;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+
+    textarea{ resize:vertical; }
+
+    /* FOOTER */
+    footer{
+      background-color:var(--dark-green);
+      color:var(--white);
+      padding:1.3rem 0;
+      margin-top:auto;
+      font-size:0.85rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      flex-direction:column;
+      gap:0.35rem;
+    }
+
+    /* RESPONSIVE */
+    @media (min-width:820px){
+      .feature-row{
+        flex-direction:row;
+        align-items:center;
+      }
+    }
+
+    @media (max-width:780px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      nav{ margin-top:0.25rem; }
+      .hero-panel{ padding:2rem 1.5rem; }
+    }
+
+    @media (max-width:520px){
+      .hero-panel{
+        padding:1.7rem 1.2rem;
+        border-radius:0;
+        box-shadow:none;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="image/1.png" alt="DIFF logo">
+        <div class="brand-title">DIFF – Drone Intelligence for Future Forestry</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#drone">Drone concept</a>
+        <a href="#app">App & web</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn-primary">Request demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-panel">
+        <div class="hero-left">
+          <h1 class="hero-title">Smarter drone monitoring for timber plantations</h1>
+          <p class="hero-subtitle">
+            DIFF is a prototype system that uses drones and simple AI to monitor tree health,
+            detect problems early, and reduce manual field work for plantation teams.
+          </p>
+          <ul class="hero-list">
+            <li>Fly over assets instead of walking every block in the field.</li>
+            <li>Capture consistent images of tree rows, blocks and boundaries.</li>
+            <li>Turn raw images into simple maps and alerts that non-technical users can read.</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="#drone" class="btn-primary">See the drone concept</a>
+            <a href="#app" class="btn-outline">See the app workflow</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-tag">Prototype visual</div>
+            <div class="hero-image-wrap">
+              <!-- hero drone image -->
+              <img src="image/2.png" alt="Drone flying above plantation">
+            </div>
+            <p class="hero-card-text">
+              DIFF’s drone surveys plantation blocks and sends imagery to the web dashboard for review.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-light">
+    <div class="container">
+      <h2 class="section-heading">About DIFF</h2>
+      <p class="section-sub">
+        Overview of how DIFF supports plantation monitoring and management.
+      </p>
+      <p>
+        Many plantation teams rely on manual patrols and paper notes to understand what is happening
+        in the field. This is slow, tiring, and makes it easy to miss early signs of disease, water
+        stress or illegal logging. DIFF explores whether a simple drone and web app can give
+        a clearer picture with less effort.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <span class="info-chip">Objective</span>
+          <div class="info-header">
+            <div class="info-icon">O</div>
+            <h3>What we want to prove</h3>
+          </div>
+          <p>
+            Build a working prototype that shows how images from a drone can be:
+          </p>
+          <ul>
+            <li>captured in a structured way,</li>
+            <li>organised by plantation block, and</li>
+            <li>viewed on a simple, non-technical dashboard.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <span class="info-chip">Pain points</span>
+          <div class="info-header">
+            <div class="info-icon info-icon--amber">P</div>
+            <h3>Problems we focus on</h3>
+          </div>
+          <p>
+            DIFF concentrates on three practical issues faced by plantation teams:
+          </p>
+          <ul>
+            <li>long inspection time in the field,</li>
+            <li>lack of up-to-date visual records,</li>
+            <li>difficulty linking field issues to decisions.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <span class="info-chip">Prototype scope</span>
+          <div class="info-header">
+            <div class="info-icon info-icon--scope">S</div>
+            <h3>What we will show</h3>
+          </div>
+          <ul>
+            <li>a physical or simulated drone with a simple sensor mount,</li>
+            <li>a small sample of plantation images or test data,</li>
+            <li>a web page that displays blocks, alerts and notes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRONE CONCEPT -->
+  <section id="drone">
+    <div class="container feature-row">
+      <div class="feature-media">
+        <div class="card-simple">
+          <img src="image/3.png" alt="DIFF drone prototype">
+        </div>
+      </div>
+      <div class="feature-text">
+        <div class="feature-title-row">
+          <div class="feature-icon">D</div>
+          <h3>Drone concept – what DIFF flies with</h3>
+        </div>
+
+        <div class="feature-box">
+          <p>
+            The DIFF drone concept focuses on stable, repeatable flights over tree rows. It does not
+            need to be a very expensive platform. The drone follows a route, captures overlapping
+            images and returns safely with usable data.
+          </p>
+          <ul>
+            <li>Standard quadcopter platform with GPS-assisted flight modes.</li>
+            <li>Camera mounted to see tree crowns and ground clearly.</li>
+            <li>Optional extra sensor (temperature / humidity / simple multispectral).</li>
+            <li>Flight plan based on plantation blocks, not random manual flying.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP & WEB -->
+  <section id="app" class="section-light">
+    <div class="container feature-row">
+      <div class="feature-text">
+        <div class="feature-title-row">
+          <div class="feature-icon">A</div>
+          <h3>Web & app – how people see the data</h3>
+        </div>
+
+        <div class="feature-box">
+          <p>
+            The DIFF web and mobile views act as a control centre for plantation staff.
+            Users can quickly see which blocks are healthy, which need checking, and
+            basic statistics from recent flights.
+          </p>
+          <ul>
+            <li>Overview of total blocks, flights and alerts.</li>
+            <li>Map or grid view of plantation zones.</li>
+            <li>Detail page for each block with photos and notes.</li>
+            <li>Reserved space for future features such as trends or AI scores.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="feature-media">
+        <div class="card-simple">
+          <img src="image/4.png" alt="DIFF app and dashboard">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-heading">Contact & next steps</h2>
+      <p class="section-sub">
+        Simple demo form to collect interest from plantation managers, lecturers or partners.
+      </p>
+
+      <div class="contact-card">
+        <form onsubmit="event.preventDefault(); alert('Demo request captured for presentation.');">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Name</label><br>
+              <input id="name" type="text" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label><br>
+              <input id="email" type="email" required>
+            </div>
+          </div>
+
+          <div class="form-field" style="margin-bottom:0.9rem;">
+            <label for="message">Message / how you would like to use DIFF</label><br>
+            <textarea id="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Send demo request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© DIFF – Drone Intelligence for Future Forestry · IDP Prototype</div>
+      <div>Developed as part of an Integrated Design Project.</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
